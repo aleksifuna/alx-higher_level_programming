@@ -19,3 +19,4 @@ What is the official Python coding style and how to check your code with pycodes
 5-print_string.py - a python script that prints a string 3 times followed by first 9 characters
 6-concat.py - python code that concatinates two strings
 7-edges.py - Copy - Cut - Paste
+8-concat_edges.py - python script to print object-oriented programming with Python, followed by a new line.
