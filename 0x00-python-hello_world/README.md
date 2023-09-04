@@ -17,3 +17,4 @@ What is the official Python coding style and how to check your code with pycodes
 3-print_number.py - a python script that prints an integer stored in a variable
 4-print_float.py - a python scripts that prints a float stored in a variable in 2 dp
 5-print_string.py - a python script that prints a string 3 times followed by first 9 characters
+6-concat.py - python code that concatinates two strings
