@@ -20,3 +20,4 @@ What is the official Python coding style and how to check your code with pycodes
 6-concat.py - python code that concatinates two strings
 7-edges.py - Copy - Cut - Paste
 8-concat_edges.py - python script to print object-oriented programming with Python, followed by a new line.
+9-easter_egg.py - Python script that prints “The Zen of Python”, by TimPeters, followed by a new line.
