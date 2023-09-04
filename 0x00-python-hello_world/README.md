@@ -13,3 +13,4 @@ What is the official Python coding style and how to check your code with pycodes
 
 0-run - a Shell script that runs a Python script.
 1-run_inline - a shell script that runs a python code
+2-print.py - a python script that prints a string followed by new line
