@@ -12,3 +12,4 @@ What are indexing and slicing in Python
 What is the official Python coding style and how to check your code with pycodestyle
 
 0-run - a Shell script that runs a Python script.
+1-run_inline - a shell script that runs a python code
