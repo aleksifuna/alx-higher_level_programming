@@ -15,3 +15,4 @@ What is the official Python coding style and how to check your code with pycodes
 1-run_inline - a shell script that runs a python code
 2-print.py - a python script that prints a string followed by new line
 3-print_number.py - a python script that prints an integer stored in a variable
+4-print_float.py - a python scripts that prints a float stored in a variable in 2 dp
