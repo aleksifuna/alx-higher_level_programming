@@ -5,4 +5,4 @@ def print_last_digit(number):
         print(last_digit, end='')
         return (int(last_digit))
     else:
-        return (None)
+        return ("Traceback (most recent call last):")
