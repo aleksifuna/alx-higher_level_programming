@@ -13,7 +13,8 @@ int is_palindrome(listint_t **head)
 	int second_half;
 	listint_t *current;
 
-	first_half = second_half = node = i = 0;
+	first_half = second_half = 1;
+	node = i = 0;
 	current = *head;
 	if (current == NULL || current->next == NULL)
 		return (1);
@@ -26,11 +27,11 @@ int is_palindrome(listint_t **head)
 	while (current != NULL)
 	{
 		if (i < node / 2)
-			first_half += current->n;
+			first_half *= current->n;
 		else if (node % 2 != 0 && i == node / 2)
 			first_half += 0;
 		else
-			second_half += current->n;
+			second_half *= current->n;
 		i++;
 		current = current->next;
 	}
