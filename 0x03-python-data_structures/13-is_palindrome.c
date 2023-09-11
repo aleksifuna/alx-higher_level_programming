@@ -8,37 +8,26 @@
  */
 int is_palindrome(listint_t **head)
 {
-	int i, j;
+	int i;
 	int node;
-	int first;
-	int second;
-	listint_t *current, *temp;
+	int list[3000];
+	listint_t *current;
 
-	node = i = 0;
 	current = *head;
 	if (current == NULL || current->next == NULL)
 		return (1);
+	i = 0;
 	while (current != NULL)
 	{
-		node++;
-		current = current->next;
-	}
-	current = *head;
-	while (i < node / 2)
-	{
-		first = current->n;
-		j = i;
-		temp = current;
-		while (j != node - 1 - i)
-		{
-			temp = temp->next;
-			j++;
-		}
-		second = temp->n;
-		if (first != second)
-			return (0);
+		list[i] = current->n;
 		i++;
 		current = current->next;
+	}
+	node = i;
+	for (i = 0; i < node / 2; i++)
+	{
+		if (list[i] != list[node - 1 - i])
+			return (0);
 	}
 	return (1);
 }
