@@ -1,3 +1,4 @@
+void print_python_list_info(PyObject *p);
 #include <stdio.h>
 #include <Python.h>
 /**
