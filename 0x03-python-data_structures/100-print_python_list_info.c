@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <Python.h>
+void print_python_list_info(PyObject *p);
 /**
  * print_python_list_info - prints some basic information for a python list
  * @p: pointer to a python object
@@ -9,6 +10,7 @@ void print_python_list_info(PyObject *p)
 	int i;
 	PyListObject *list;
 	PyObject *x;
+
 	list = (PyListObject *)p;
 	printf("[*] Size of the Python List = %ld\n", list->ob_base.ob_size);
 	printf("[*] Allocated = %ld\n", list->allocated);
