@@ -1,6 +1,6 @@
-void print_python_list_info(PyObject *p);
 #include <stdio.h>
 #include <Python.h>
+void print_python_list_info(PyObject *p);
 /**
  * print_python_list_info - prints some basic information for a python list
  * @p: pointer to a python object
