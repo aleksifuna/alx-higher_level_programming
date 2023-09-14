@@ -24,11 +24,24 @@ void print_python_bytes(PyObject *p)
 {
 	PyBytesObject *str;
 	int size;
+	int max;
 
 	str = (PyBytesObject *)p;
 	size = str->ob_base.ob_size;
 	printf("[.] bytes object info\n");
-	printf("  size: %s\n",str->ob_base.ob_base.ob_type->tp_name);
+	if (str->ob_base.ob_base.ob_type->tp_name[0] != 'b')
+	{
+		printf("[ERROR] Invalid Bytes Object\n");
+		return;
+	}
 	printf("  size: %d\n",size);
 	printf("  trying string: %s\n", str->ob_sval);
+	if (size < 10)
+		max = size + 1;
+	else
+		max = 10;
+	printf("  first %d bytes:", max);
+	for (i = 0; i < max; i++)
+		printf(" %x", str->ob_sval[i]);
+	printf("\n");
 }
