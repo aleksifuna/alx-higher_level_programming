@@ -43,6 +43,6 @@ void print_python_bytes(PyObject *p)
 		max = 10;
 	printf("  first %d bytes:", max);
 	for (i = 0; i < max; i++)
-		printf(" %02x", str->ob_sval[i]);
+		printf(" %02x", (unsigned char)str->ob_sval[i]);
 	printf("\n");
 }
