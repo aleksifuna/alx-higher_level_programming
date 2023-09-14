@@ -22,11 +22,13 @@ void print_python_list(PyObject *p)
  */
 void print_python_bytes(PyObject *p)
 {
-	int i;
 	PyBytesObject *str;
+	int size;
 
 	str = (PyBytesObject *)p;
+	size = str->ob_base.ob_size;
 	printf("[.] bytes object info\n");
-	printf("  size: %ld\n",str->ob_base.ob_size);
+	printf("  size: %s\n",str->ob_base.ob_base.ob_type->tp_name);
+	printf("  size: %d\n",size);
 	printf("  trying string: %s\n", str->ob_sval);
 }
