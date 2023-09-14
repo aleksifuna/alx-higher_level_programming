@@ -25,6 +25,7 @@ void print_python_bytes(PyObject *p)
 	PyBytesObject *str;
 	int size;
 	int max;
+	int i;
 
 	str = (PyBytesObject *)p;
 	size = str->ob_base.ob_size;
@@ -42,6 +43,6 @@ void print_python_bytes(PyObject *p)
 		max = 10;
 	printf("  first %d bytes:", max);
 	for (i = 0; i < max; i++)
-		printf(" %x", str->ob_sval[i]);
+		printf(" %02x", str->ob_sval[i]);
 	printf("\n");
 }
