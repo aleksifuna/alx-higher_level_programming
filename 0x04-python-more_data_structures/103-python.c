@@ -35,7 +35,7 @@ void print_python_bytes(PyObject *p)
 		printf("[ERROR] Invalid Bytes Object\n");
 		return;
 	}
-	printf("  size: %d\n",size);
+	printf("  size: %d\n", size);
 	printf("  trying string: %s\n", str->ob_sval);
 	if (size < 10)
 		max = size + 1;
