@@ -17,7 +17,8 @@ void print_python_list(PyObject *p)
 	{
 		printf("Element %d: %s\n", i, list->ob_item[i]->ob_type->tp_name);
 		if ((list->ob_item[i]->ob_type->tp_name)[0] == 'b')
-			print_python_bytes(ob_item[i]);
+			print_python_bytes(list->ob_item[i]);
+	}
 }
 /**
  * print_python_bytes - prints some basic info of a string byte
