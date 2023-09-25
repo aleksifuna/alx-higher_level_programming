@@ -8,3 +8,4 @@ def safe_function(fct, *args):
     except Exception as e:
         msg = "Exception: {}\n".format(str(e))
         sys.stderr.write(msg)
+        return None
