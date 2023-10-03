@@ -1,0 +1,26 @@
+The ``3-say_my_name`` module
+===============================
+
+
+say_my_name function
+_______________________
+
+``say_my_name`` should print on stdout My name is <first name> <last name>
+first_name and last_name should only be strings
+
+	>>> say_my_name = __import__('3-say_my_name').say_my_name
+	>>> say_my_name("Alex", "Sifuna")
+	My name is Alex Sifuna
+
+	>>> say_my_name(2, "Sifuna")
+	Traceback (most recent call last):
+		...
+	TypeError: first_name must be a string
+	
+	>>> say_my_name("Alex", 700)
+	Traceback (most recent call last):
+		...
+	TypeError: last_name must be a string
+	
+	>>> say_my_name("Alex")
+	My name is Alex 
