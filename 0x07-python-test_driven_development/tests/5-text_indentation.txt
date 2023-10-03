@@ -1,0 +1,23 @@
+The ``5-text_indentation`` module
+===============================
+
+
+``text_indentation``  function
+_______________________
+
+``text_indetation`` function only accepts a string then prints it
+where a character is , ? or : it prints 2 new lines
+
+	>>> text_indentation = __import__('5-text_indentation').text_indentation
+	>>> text_indentation("Hi.How are you?the following:")
+	Hi.
+	<BLANKLINE>
+	How are you?
+	<BLANKLINE>
+	the following:
+	<BLANKLINE>
+
+	>>> text_indentation(1222223)
+	Traceback (most recent call last):
+		...
+	TypeError: text must be a string
