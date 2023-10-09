@@ -18,4 +18,5 @@ At the end of this project, you are expected to be able to explain to anyone, wi
 
 ## Tasks
 =========
-1. 0-lookup.py:  a function that returns the list of available attributes and methods of an object
+1. 0-lookup.py:  a function that returns the list of available attributes and methods of an object2. 1-my_list.py, tests/1-my_list.txt : a class that inherits from list with a public instance \
+	method that prints the list that is sorted in ascending order
