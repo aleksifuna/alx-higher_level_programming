@@ -56,6 +56,7 @@ class Square(Rectangle):
     """Inherites from Rectangle and defines a square geometry"""
     def __init__(self, size):
         """ Initializes the class"""
+        self.integer_validator("size", size)
         self.__size = size
         super().__init__(self.__size, self.__size)
 
