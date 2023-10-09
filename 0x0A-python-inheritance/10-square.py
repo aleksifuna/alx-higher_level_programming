@@ -56,4 +56,11 @@ class Square(Rectangle):
     """Inherites from Rectangle and defines a square geometry"""
     def __init__(self, size):
         """ Initializes the class"""
-        super().__init__(size, size)
+        self.__size = size
+        super().__init__(self.__size, self.__size)
+
+    def area(self):
+        """ calculates and returns the area of a square
+        Returns: area of the square
+        """
+        return self.__size ** 2
