@@ -1,0 +1,35 @@
+The ``1-my_list`` module
+==========================
+``MyList class``
+----------------
+inherits from list class. has a method to manupilate the data.
+
+
+```print_sorted``` function
+---------------------------
+the print_sorted function should print a list in sorted ascending order
+we are to assume that all the elements of the list will be of type int.
+
+
+	>>> MyList = __import__('1-my_list').MyList
+	>>> my_list = MyList()
+	>>> my_list.append(4)
+	>>> my_list.append(-5)
+	>>> my_list.append(6)
+	>>> my_list.append(3)
+	>>> my_list.append(0)
+	>>> print(my_list)
+	[4, -5, 6, 3, 0]
+	
+	>>> my_list.print_sorted()
+	[-5, 0, 3, 4, 6]
+	
+	>>> print(my_list)
+	[4, -5, 6, 3, 0]
+	
+	>>> my_list[0] = -5
+	>>> my_list.print_sorted()
+	[-5, -5, 0, 3, 6]
+	
+	>>> print(my_list)
+	[-5, -5, 6, 3, 0]
