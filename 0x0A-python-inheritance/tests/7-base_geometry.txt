@@ -28,3 +28,8 @@ validates value
 	Traceback (most recent call last):
 		...
 	TypeError: width must be an integer
+
+	>>> bg.integer_validator("height", "23")
+	Traceback (most recent call last):
+		...
+	TypeError: height must be an integer
