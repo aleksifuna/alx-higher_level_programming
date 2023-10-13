@@ -149,3 +149,14 @@ class Rectangle(Base):
                         self.__x = value
                     elif key == "y":
                         self.__y = value
+
+    def to_dictionary(self):
+        """
+        returns the dictionary represenation of a Rectangle instance
+        """
+        my_list = ["id", "width", "height", "x", "y"]
+        my_dict = {}
+        for key in my_list:
+            k = "_Rectangle__{}".format(key)
+            my_dict.update({key: getattr(self, k, self.id)})
+        return my_dict
