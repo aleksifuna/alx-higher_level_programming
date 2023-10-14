@@ -50,6 +50,11 @@ class Base:
     def from_json_string(json_string):
         """
         returns the list of the JSON string representation
+
+        Args:
+            json_string: a string representing a list of directories
+
+        Return: a list of JSON string represenyion of json_string
         """
         if json_string is None:
             return "[]"
@@ -60,6 +65,11 @@ class Base:
         """
         creates and return an instance of base class with all attribute
         already set
+
+        Args:
+            dictionary: a double pointer to a dictionary
+
+        Return: created instance of class
         """
         if cls.__name__ == "Rectangle":
             my_obj = cls(1, 1)
@@ -69,3 +79,22 @@ class Base:
             return None
         my_obj.update(**dictionary)
         return my_obj
+
+    @classmethod
+    def load_from_file(cls):
+        """
+        creates instances from a dictionary of existing instances of a class
+
+        Return: a list of created instances
+        """
+        instance_list = []
+        filename = "{}.json".format(cls.__name__)
+        try:
+            with open(filename, 'r', encoding="utf-8") as f:
+                string = f.read()
+                json_string = cls.from_json_string(string)
+                instance_list = [cls.create(**inst) for inst in json_string]
+                return instance_list
+
+        except FileNotFoundError:
+            return instance_list
