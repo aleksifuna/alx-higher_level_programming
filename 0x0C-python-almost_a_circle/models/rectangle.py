@@ -47,7 +47,7 @@ class Rectangle(Base):
         validates and sets the attribute height
         """
         if type(value) is not int:
-            raise TypeError("Width must be an integer")
+            raise TypeError("width must be an integer")
         if value < 0:
             raise ValueError("width must be >= 0")
         self.__width = value

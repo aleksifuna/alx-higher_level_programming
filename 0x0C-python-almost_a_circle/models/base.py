@@ -98,3 +98,61 @@ class Base:
 
         except FileNotFoundError:
             return instance_list
+    
+    @classmethod
+    def save_to_file_csv(cls, list_objs):
+        """
+        write a csv representation of an instance to file
+
+        Args:
+            list_objs: List of instances that inherit from base
+        """
+        if list_objs is None:
+            list_objs = []
+        csv_string = ""
+        flag = 0
+        class_name = cls.__name__
+        filename = "{}.csv".format(class_name)
+        list_dicts = [obj.to_dictionary() for obj in list_objs]
+        for inst_dict in list_dicts:
+            if class_name is "Square":
+                if flag == 1:
+                    csv_string = csv_string + "\n"
+                a = inst_dict["id"]
+                b = inst_dict["size"]
+                c = inst_dict["x"]
+                d = inst_dict["y"]
+                csv_string = csv_string + "{}, {}, {}, {}".format(a, b, c, d)
+                flag = 1
+            elif class_name is "Rectangle":
+                if flag == 1:
+                    csv_string = csv_string + "\n"
+                a = inst_dict["id"]
+                b = inst_dict["width"]
+                c = inst_dict["height"]
+                d = inst_dict["x"]
+                e = inst_dict["y"]
+                string = "{}, {}, {}, {}".format(a, b, c, d, e)
+                csv_string = csv_String + string
+        with open(filename, 'w') as f:
+            f.write(csv_string)
+
+    @classmethod
+    def load_from_file(cls):
+        """
+        creates instances from a csv representation  of existing
+        instances of a class
+
+        Return: a list of created instances
+        """
+        instance_list = []
+        filename = "{}.csv".format(cls.__name__)
+        try:
+            with open(filename, 'r', encoding="utf-8") as f:
+                string = f.read()
+                json_string = cls.from_json_string(string)
+                instance_list = [cls.create(**inst) for inst in json_string]
+                return instance_list
+
+        except FileNotFoundError:
+            return instance_list
