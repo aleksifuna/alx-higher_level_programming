@@ -32,7 +32,7 @@ class Testrectangle(unittest.TestCase):
             rect = Rectangle(4, 4, 3, "z")
         with self.assertRaisesRegex(TypeError, "y must be an integer"):
             rect = Rectangle(4, 4, 3, [2, 1, 3])
-    
+
     def test_ValueError_exception_message(self):
         """
         Tests for validation of width, height, x and y for Rectangle
@@ -67,7 +67,7 @@ class Testrectangle(unittest.TestCase):
         actual = captured_output.getvalue()
         sys.stdout = sys.stdout
         self.assertEqual(expected_output, actual)
-        
+
         expected_output = "##\n##\n"
         captured_output = io.StringIO()
         sys.stdout = captured_output
@@ -83,7 +83,7 @@ class Testrectangle(unittest.TestCase):
         """
         r1 = Rectangle(2, 4, 2, 5, 14)
         self.assertEqual(str(r1), "[Rectangle] (14) 2/5 - 2/4")
-        
+
         r1 = Rectangle(2, 2, 0, 0, 15)
         self.assertEqual(str(r1), "[Rectangle] (15) 0/0 - 2/2")
 
@@ -100,7 +100,7 @@ class Testrectangle(unittest.TestCase):
         actual = captured_output.getvalue()
         sys.stdout = sys.stdout
         self.assertEqual(expected_output, actual)
-        
+
         expected_output = " ##\n ##\n"
         captured_output = io.StringIO()
         sys.stdout = captured_output
@@ -137,3 +137,12 @@ class Testrectangle(unittest.TestCase):
         self.assertEqual(str(r1), "[Rectangle] (30) 4/7 - 5/2")
         r1.update(id=15, width=4, height=6, x=3, y=2)
         self.assertEqual(str(r1), "[Rectangle] (15) 3/2 - 4/6")
+
+    def test_to_dictionary(self):
+        """
+        Tests the method to_dictionary that returns a dictionary representation
+        of a Rectangle.
+        """
+        r1 = Rectangle(4, 6, 0, 0, 21)
+        expected = {'width': 4, 'height': 6, 'x': 0, 'y': 0, 'id': 21}
+        self.assertDictEqual(expected, r1.to_dictionary())
