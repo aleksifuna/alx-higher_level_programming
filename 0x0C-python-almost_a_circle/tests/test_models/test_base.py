@@ -68,6 +68,9 @@ class Testbase(unittest.TestCase):
         list_output = Rectangle.from_json_string(json_input)
         self.assertIsInstance(json_input, str)
         self.assertIsInstance(list_output, list)
+        list_input = None
+        list_output = Rectangle.from_json_string(list_input)
+        self.assertEqual(list_output, [])
 
     def test_create_method(self):
         """
