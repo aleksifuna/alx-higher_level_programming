@@ -5,6 +5,7 @@ import unittest
 import io
 import sys
 from models.rectangle import Rectangle
+from models.base import Base
 
 
 class Testrectangle(unittest.TestCase):
@@ -17,6 +18,12 @@ class Testrectangle(unittest.TestCase):
         """
         self.assertEqual(Rectangle(10, 2, 0, 0, 12).id, 12)
 
+    def test_is_subclass(self):
+        """
+        Tests if Rectangle is a subclass of Base class it inherits from
+        """
+        self.assertTrue(issubclass(Rectangle, Base))
+
     def test_TypeError_exception_message(self):
         """
         Tests for validation of width, height, x and y for Rectangle
@@ -24,12 +31,16 @@ class Testrectangle(unittest.TestCase):
         """
         with self.assertRaisesRegex(TypeError, "width must be an integer"):
             rect = Rectangle("a", 4)
+        with self.assertRaisesRegex(TypeError, "width must be an integer"):
+            rect = Rectangle(True, 4)
         with self.assertRaisesRegex(TypeError, "height must be an integer"):
             rect = Rectangle(5, False)
         with self.assertRaisesRegex(TypeError, "x must be an integer"):
             rect = Rectangle(4, 4, "c", 1)
         with self.assertRaisesRegex(TypeError, "y must be an integer"):
             rect = Rectangle(4, 4, 3, "z")
+        with self.assertRaisesRegex(TypeError, "y must be an integer"):
+            rect = Rectangle(4, 4, 3, False)
         with self.assertRaisesRegex(TypeError, "y must be an integer"):
             rect = Rectangle(4, 4, 3, [2, 1, 3])
 

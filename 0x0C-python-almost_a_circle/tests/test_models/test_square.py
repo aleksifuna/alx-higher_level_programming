@@ -5,12 +5,19 @@ import unittest
 import io
 import sys
 from models.square import Square
+from models.rectangle import Rectangle
 
 
 class Testsquare(unittest.TestCase):
     """
     Test class for square instance the inherits from unittest TestCase
     """
+    def test_is_subclass(self):
+        """
+        Tests if Square inherits from Rectangle
+        """
+        self.assertTrue(issubclass(Square, Rectangle))
+
     def test_square_str_method(self):
         """
         Tests str method for square class instance
