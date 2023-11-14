@@ -1,7 +1,7 @@
 -- creates a table second_table in db and adds records to it
 
 -- creating of the table
-CREATE TABLE second_table(
+CREATE TABLE IF NOT EXISTS second_table(
 	id INT,
 	name VARCHAR(256),
 	score INT
