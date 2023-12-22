@@ -13,7 +13,7 @@ class City(Base):
     city class that inherits from Base
 
     Attributes:
-    id: 
+    id: city id
     name: Name of city
     state_id: the city's state id
     """
