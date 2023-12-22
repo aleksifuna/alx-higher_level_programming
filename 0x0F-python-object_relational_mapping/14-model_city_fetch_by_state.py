@@ -1,4 +1,7 @@
 #!/usr/bin/python3
+"""
+prints cities by respective state
+"""
 
 import sys
 from sqlalchemy import create_engine
