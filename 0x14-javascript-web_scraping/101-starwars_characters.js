@@ -4,25 +4,37 @@ const req = require('request');
 const args = process.argv;
 const url = 'https://swapi-api.alx-tools.com/api/films/' + args[2] + '/';
 
-req(url, (err, response, body) => {
-  if (err) {
+(async () => {
+  try {
+    const body = await makeRequest(url);
+    const movie = JSON.parse(body);
+    const charUrl = movie.characters;
+    await printCharacters(charUrl, 0);
+  } catch (err) {
     console.log(err);
-    return;
   }
-  const movie = JSON.parse(body);
-  const characterUrls = movie.characters;
-  printCharacters(characterUrls, 0);
-});
+})();
 
-function printCharacters (characters, index) {
-  req(characters[index], (error, response, body) => {
-    if (error) {
-      console.log(error);
-      return;
-    }
-    console.log(JSON.parse(body).name);
+async function makeRequest (url) {
+  return new Promise((resolve, reject) => {
+    req(url, (err, reponse, body) => {
+      if (err) {
+        reject(err);
+      } else {
+        resolve(body);
+      }
+    });
   });
-  if (index + 1 < characters.length) {
-    printCharacters(characters, index + 1);
+}
+
+async function printCharacters (characters, index) {
+  try {
+    const body = await makeRequest(characters[index]);
+    console.log(JSON.parse(body).name);
+    if (index + 1 < characters.length) {
+      await printCharacters(characters, index + 1);
+    }
+  } catch (error) {
+    console.log(error);
   }
 }
